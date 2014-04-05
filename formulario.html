@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario</title>
+</head>
+
+<body>
+    <center>
+    <canvas id="myCanvas" width="200" height="100"
+    style="border:1px solid #000000;">
+    </canvas>
+    <!--
+   <form>
+    <label id="gender">  </label><br>
+	<input type="radio" name="g1" value="Leche"> Leche
+    <input type="radio" name="g1" value="Mant"> Mantequilla
+    <input type="radio" name="g1" value="Queso" check="checked"> Queso<br>
+
+    <input type="button"  id="enviar" class="button" value="Enviar" /><br>
+</form>
+-->
+<form method="POST"  id="enviar">
+        <label for="leche">leche:</label>
+            <input type="radio" name="pregunta1" id="leche" value="leche" />
+         <label for="mantequilla">mantequilla:</label>
+            <input type="radio" name="pregunta1" id="matrequilla" value="mantequilla" />
+        <br />
+            <input type="submit" value="Submit" name="submit" class="submit" id="submit" />
+
+</form>
+</center>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+
+ <script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    var x = canvas.width/2;
+    var y = canvas.height/2;
+    context.textAlign= 'center';
+    context.font="30px Helvetica";
+    context.fillText("pregunta",x,y);
+    
+
+    // formulario
+    $(function() { //shorthand document.ready function
+    $('#enviar').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        var data = $("#enviar :input").serializeArray();
+        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
+        localStorage.pregunta0=data[0].value;
+        
+    });
+});
+
+     </script>
+</html>

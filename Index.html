@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Blog Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+    .image{
+          margin-left: 5px;
+          margin-top: 5px;
+    }
+ .list-group-item{
+  text-align: center;
+ }
+    </style>
+
+  </head>
+
+  <body>
+      <div class="panel panel-default" >
+       <div class="container">
+          <a class="brand" href="index.html"> <img  src="images.jpg"></a>
+       </div>
+      </div>
+
+      <div id="cuerpo">
+        <img src="images.jpg" class="image" style="float:left;"/>
+        <div class="container" id="preguntas" >
+            <ul class="list-group">
+            <li class="list-group-item" id="pregunta"></li>
+            <li class="list-group-item" id="Nunca" onclick = "siguientePregunta(this)">Nunca</li>
+            <li class="list-group-item" id="Casi nunca" onclick = "siguientePregunta(this)" >Casi nunca</li>
+            <li class="list-group-item" id="Algunas veces" onclick = "siguientePregunta(this)" >Algunas veces</li>
+            <li class="list-group-item" id="Muchas veces" onclick = "siguientePregunta(this)" >Muchas veces</li>
+            <li class="list-group-item" id="Siempre" onclick = "siguientePregunta(this)" >Siempre</li>
+          </ul>
+        </div>
+      </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script> 
+     <script type="text/javascript"> 
+      
+      var motivacion=['Habitualmente asisto a alguno(s) de los siguientes eventos: galerías de arte, exposiciones literarias, conciertos, salas de teatro','Yo valoro cosas prácticas que se puedan ver o tocar, como plantas y animales que uno puede plantar o criar, o cosas que uno puede construir o mejorar','Habitualmente me gusta leer las noticias y/o verlas por TV','Pertenezco o me gustaría pertenecer a algún grupo o taller artístico','Me gusta apreciar el contenido estético de las cosas','Yo valoro el éxito en política, en liderazgo o negocios',' Habitualmente leo documentos de divulgación científica','Soy artístico, imaginativo, original e independiente','Me gusta apreciar el contenido estético de las cosas','Me interesa leer artículos relacionados con el comportamiento o conducta humana'];
+       var habilidades=['Soy artístico, imaginativo, original e independiente','Durante las enseñanzas básica y media, obtuve buenas calificaciones en alguna(s) de las siguientes disciplinas: Artes Plásticas, Educación Musical, Literatura','Me gusta estudiar y resolver problemas matemáticos y/o científicos','Soy energético, ambicioso y sociable',' Durante las enseñanzas básica y media, fui bien calificado en trabajos o proyectos de investigación','Comparado con gente de mi edad, soy bueno trabajando con registros y números de manera sistemática y ordenada','Comparado con gente de mi edad, soy bueno trabajando con registros y números de manera sistemática y ordenada','En la mayoría de los casos, las ideas que propongo son aceptadas por los demás','Tengo habilidad para estudiar cualquier aplicación de una fórmula matemática abstracta','Tengo facilidad para utilizar imaginativamente, restos de materiales, habitualmente desechables'];
+
+var numPregunta = motivacion.length;
+var respuestas= [];
+var preguntas = [motivacion,hablidades];
+var asigPregunta = 0;
+$('#pregunta').text(motivacion[0]);
+
+function siguientePregunta(elem){
+
+    respuestas[numPregunta]=$(elem).attr("id");
+    $('#pregunta').text(preguntas[asigPregunta][--numPregunta]); 
+
+     if(numPregunta<0)
+     {
+      numPregunta=hablidades.length;
+      asigPregunta++;
+      if(asigPregunta==2)
+      {
+         //mostar resultados encuesta
+      }
+    }
+    
+}
+
+    </script>
+  </body>
+</html>
